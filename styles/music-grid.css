@@ -61,10 +61,11 @@
 }
 
 
-.mg-music-grid tbody + tbody:before {
+.mg-music-grid tbody:before,
+.mg-music-grid tbody:after {
 	display: table-row;
 	content: ' ';
-	height: .5em;
+	height: .25em;
 }
 
 .mg-music-grid tr td {
