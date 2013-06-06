@@ -346,6 +346,7 @@
 
 figure.mg-repeat:before {
 	content: "𝄎";
+	content: "%";
 	font-size: 200%;
 }
 figure.mg-rest:before {
