@@ -345,10 +345,10 @@
 
 
 figure.mg-repeat:before {
-	content: "𝄎";
 	content: "%";
+/*	content: "𝄎";
 	font-size: 200%;
-}
+*/}
 figure.mg-rest:before {
 	/*content: "𝄻𝄼𝄽";*/
 	font-size: 200%;
