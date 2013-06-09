@@ -161,6 +161,7 @@
 
 }
 .mg-music-grid td[data-mg-rythm="2/1/1"],
+.mg-music-grid td[data-mg-rythm="1/2/1"],
 .mg-music-grid td[data-mg-rythm="1/1/2"] {
 	background-size: auto, 50% 50%;
 
@@ -169,6 +170,11 @@
 	background-image: linear-gradient( to right bottom, transparent 0%, transparent 48.5%, #000 49%, #000 51%, transparent 51.5%, transparent 100% ),
 						linear-gradient( to left bottom, transparent 0%, transparent 47%, #000 48%, #000 52%, transparent 53%, transparent 100% );
 	background-position: 100% 100%;
+}
+.mg-music-grid td[data-mg-rythm="1/2/1"] {
+	background-image: linear-gradient( to left bottom, transparent 0%, transparent 48.5%, #000 49%, #000 51%, transparent 51.5%, transparent 100% ),
+						linear-gradient( to right bottom, transparent 0%, transparent 47%, #000 48%, #000 52%, transparent 53%, transparent 100% );
+	background-position: 0% 100%;
 }
 .mg-music-grid td[data-mg-rythm="1/1/2"] {
 	background-image: linear-gradient( to right bottom, transparent 0%, transparent 48.5%, #000 49%, #000 51%, transparent 51.5%, transparent 100% ),
@@ -180,8 +186,38 @@
 }
 
 
+/* alternative : show end of measure. help reading */
+.mg-music-grid td[data-mg-rythm="1/2/1"] {
+	background-image: linear-gradient( to left bottom, transparent 0%, transparent 48.5%, #000 49%, #000 51%, transparent 51.5%, transparent 100% ),
+						linear-gradient( to right bottom, transparent 0%, transparent 45.75%, #000 46.75%, #000 48.75%, transparent 49.25%, transparent 50.75%, #000 51.25%, #000 53.25%, transparent 54.25%, transparent 100% );
+	background-position: 0% 100%;
+}
 
 
+/* ternary */
+.mg-music-grid td[data-mg-rythm="2/1"] {
+	background-image: linear-gradient( 210deg, transparent 0%, transparent 47%, #000 48%, #000 52%, transparent 53%, transparent 100% ),
+						linear-gradient( 330deg, transparent 0%, transparent 45.75%, #000 46.75%, #000 48.75%, transparent 49.25%, transparent 50.75%, #000 51.25%, #000 53.25%, transparent 54.25%, transparent 100% );
+	background-position: 100% 87.5%, 0% 87.5%;
+	background-size: 50% 50%, 50% 50%;
+}
+
+/* ternary */
+.mg-music-grid td[data-mg-rythm="1/2"] {
+	background-image: linear-gradient( 90deg, transparent 0%, transparent 48.5%, #000 49%, #000 51%, transparent 51.5%, transparent 100% ),
+						linear-gradient( 330deg, transparent 0%, transparent 45.75%, #000 46.75%, #000 48.75%, transparent 49.25%, transparent 50.75%, #000 51.25%, #000 53.25%, transparent 54.25%, transparent 100% );
+	background-position: 0% 0%, 0% 87.5%;
+	background-size: 100% 50%, 50% 50%;
+}
+
+/* ternary */
+.mg-music-grid td[data-mg-rythm="1/1/1"] {
+	background-image: linear-gradient( 90deg, transparent 0%, transparent 48.5%, #000 49%, #000 51%, transparent 51.5%, transparent 100% ),
+						linear-gradient( 210deg, transparent 0%, transparent 47%, #000 48%, #000 52%, transparent 53%, transparent 100% ),
+						linear-gradient( 330deg, transparent 0%, transparent 45.75%, #000 46.75%, #000 48.75%, transparent 49.25%, transparent 50.75%, #000 51.25%, #000 53.25%, transparent 54.25%, transparent 100% );
+	background-position: 0% 0%, 100% 87.5%, 0% 87.5%;
+	background-size: 100% 50%, 50% 50%, 50% 50%;
+}
 
 .mg-music-grid td figure {
 	margin: 0;
@@ -228,7 +264,12 @@
 }
 
 .mg-music-grid td[data-mg-rythm="2/1/1"] figure:nth-child(1),
+.mg-music-grid td[data-mg-rythm="1/2/1"] figure:nth-child(2),
 .mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(3),
+
+.mg-music-grid td[data-mg-rythm="2/1"] figure:nth-child(1),
+.mg-music-grid td[data-mg-rythm="1/2"] figure:nth-child(2),
+
 .mg-music-grid td[data-mg-rythm="2/2"] figure {
 	width: 100%;
 	height: 2em;
@@ -236,10 +277,19 @@
 	line-height: 2em;
 }
 
+.mg-music-grid td[data-mg-rythm="2/1"] figure:nth-child(1),
+.mg-music-grid td[data-mg-rythm="1/2"] figure:nth-child(2) {
+	width: 50%;
+}
+
+
+.mg-music-grid td[data-mg-rythm="1/1/1"] figure,
 
 .mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(1),
+.mg-music-grid td[data-mg-rythm="1/2/1"] figure:nth-child(1),
 .mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(2),
 .mg-music-grid td[data-mg-rythm="2/1/1"] figure:nth-child(2),
+.mg-music-grid td[data-mg-rythm="1/2/1"] figure:nth-child(3),
 .mg-music-grid td[data-mg-rythm="2/1/1"] figure:nth-child(3),
 .mg-music-grid td[data-mg-rythm="1/1/1/1"] figure {
 	height: 3em;
@@ -259,18 +309,18 @@
 	padding-left: 50%;
 }
 
+.mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(2) {
+	padding-left: 50%;
+}
 
 
 
 .mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(1),
-.mg-music-grid td[data-mg-rythm="1/1/1/1"] 	figure:nth-child(1),
+.mg-music-grid td[data-mg-rythm="1/2/1"] figure:nth-child(1),
 .mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(2),
-.mg-music-grid td[data-mg-rythm="1/1/1/1"] 	figure:nth-child(2),
 
 .mg-music-grid td[data-mg-rythm="2/1/1"] figure:nth-child(3),
-.mg-music-grid td[data-mg-rythm="2/1/1"] figure:nth-child(3),
-.mg-music-grid td[data-mg-rythm="1/1/1/1"]	figure:nth-child(4),
-.mg-music-grid td[data-mg-rythm="1/1/1/1"] 	figure:nth-child(4)
+.mg-music-grid td[data-mg-rythm="1/1/1/1"] 	figure
 {
 	width: calc(100% / 3);
 	padding: 0;
@@ -282,19 +332,27 @@
 /*	border:1px solid red;
 */}
 	
-.mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(1){
+.mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(1),
+.mg-music-grid td[data-mg-rythm="1/2/1"] figure:nth-child(1){
 	height: 100%;
 	line-height: 6em;
 }
-.mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(2) {
+.mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(2),
+.mg-music-grid td[data-mg-rythm="1/2/1"] figure:nth-child(3) {
 	height: 3em;
 	line-height: 2em;
+}
+.mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(2) {
 	padding-bottom: 1em;
 }
+.mg-music-grid td[data-mg-rythm="1/2/1"] figure:nth-child(3) {
+	padding-top: 1em;
+}
 
-.mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(3){
+.mg-music-grid td[data-mg-rythm="1/1/2"] figure:nth-child(3),
+.mg-music-grid td[data-mg-rythm="1/2/1"] figure:nth-child(2){
 	width: calc( 100% / 3 * 2 );
-	height: 50%;
+	height: 2em;
 	line-height: 2em;
 	padding-left: 12.5%;
 }
