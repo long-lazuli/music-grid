@@ -1,4 +1,5 @@
 music-grid
 ==========
 
-Web / Music Grid
+Music Chords Grid CSS Framework
+http://long-lazuli.github.io/music-grid/
