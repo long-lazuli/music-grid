@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<title>Music Grid Book</title>
+
+		<!-- Stylesheets & prefix-free -->
+ 			<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ 			<!--[if IE]>
+ 			  <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ 			<![endif]-->
+ 			<link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+
+			<!--script src="https://raw.github.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js" type="text/javascript"></script-->
+			<script src="scripts/vendor/prefixfree.min.js" type="text/javascript"></script>
+
+		<!-- JS Libraries -->
+			<!--script src="http://code.jquery.com/jquery-2.0.2.min.js"></script-->
+
+		<!-- This app scripts -->
+			<script src="scripts/music-grid.js"></script>
+
+	</head>
+<body>
+
+
+	<table class="mg-music-grid papers" data-mg-key="C">
+
+  		<thead>
+	  		<tr>
+	  			<th colspan="100%">
+					<h1>Manhã de Carnaval</h1>
+					<a class="mg-author" href="#!/author/Luiz+Bonfa">Luiz Bonfa</a> 
+	  			</th>
+	  		</tr>
+	  	</thead>
+
+  		<thead>
+	  		<tr>
+	  			<th colspan="100%">"<strong>Manhã de Carnaval</strong>" ("Morning of Carnival"), is the title of the most popular song by Brazilian composer <a href="http://en.wikipedia.org/wiki/Luiz_Bonf%C3%A1" title="Luiz Bonfá">Luiz Bonfá</a> and lyricist <a href="http://en.wikipedia.org/wiki/Ant%C3%B4nio_Maria" title="Antônio Maria">Antônio Maria</a>.</th>
+	  		</tr>
+	  	</thead>
+
+<!--BEGIN-- Tone chooser -->
+  		<thead>
+	  		<tr>
+	  			<th colspan="100%" class="alignRight">
+	  				<label>Tonalité :</label>
+					<select class="mg-keys" onchange="mg.toneChange(this)">
+						<option disabled value="i">Roman</option>
+						<optgroup label="Keys :">
+							<option value="1">A</option>
+							<option value="2">B♭</option>
+							<option value="3">B</option>
+							<option value="4" class="original" selected="selected">C</option>
+							<option value="5">C♯</option>
+							<option value="6">D</option>
+							<option value="7">E♭</option>
+							<option value="8">E</option>
+							<option value="9">F</option>
+							<option value="10">F♯</option>
+							<option value="11">G</option>
+							<option value="11">G♯</option>
+						</optgroup>	
+					</select>
+				</th>
+	  		</tr>
+	  	</thead>
+<!--END-- Tone chooser -->
+
+  		<tbody>
+			<tr>
+				<th rowspan="2">A</th>
+				<td data-sign="start">
+					<figure class="mg-chord" data-alt="m">A</figure>
+				</td>
+				<td data-mg-rythm="2/2">
+					<figure class="mg-chord" data-alt="dim">B</figure>
+					<figure class="mg-chord" data-alt="7">E</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="m">A</figure>
+				</td>
+				<td data-mg-rythm="2/2">
+					<figure class="mg-chord" data-alt="dim">B</figure>
+					<figure class="mg-chord" data-alt="7">E</figure>
+				</td>
+
+				<td>
+					<figure class="mg-chord" data-alt="m">A</figure>
+				</td>
+				<td data-mg-rythm="2/2">
+					<figure class="mg-chord" data-alt="m7">B</figure>
+					<figure class="mg-chord" data-alt="7">G</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="Maj7">C</figure>
+				</td>
+				<td data-mg-rythm="2/2">
+					<figure class="mg-chord" data-alt="dim">E</figure>
+					<figure class="mg-chord" data-alt="7">A</figure>
+				</td>
+				<th rowspan="2"></th>
+			</tr>
+			<tr>
+				<td>
+					<figure class="mg-chord" data-alt="m7">D</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="7">G</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="Maj7">C</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="Maj7">F</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="dim">B</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="7">E</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="m">A</figure>
+				</td>
+				<td data-mg-rythm="2/2">
+					<figure class="mg-chord" data-alt="dim">B</figure>
+					<figure class="mg-chord" data-alt="7">E</figure>
+				</td>
+			</tr>
+		</tbody>
+
+		<tbody>
+			<tr>
+				<th rowspan="2">B</th>
+				<td>
+					<figure class="mg-chord" data-alt="m">A</figure>
+				</td>
+				<td data-mg-rythm="2/2">
+					<figure class="mg-chord" data-alt="dim">B</figure>
+					<figure class="mg-chord" data-alt="7">E</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="m">A</figure>
+				</td>
+				<td data-mg-rythm="2/2">
+					<figure class="mg-chord" data-alt="dim">B</figure>
+					<figure class="mg-chord" data-alt="7">E</figure>
+				</td>
+
+				<td>
+					<figure class="mg-chord" data-alt="dim">E</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="7">A</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="m">D</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="m7">D</figure>
+				</td>
+				<th></th>
+			</tr>
+			<tr>
+				<td>
+					<figure class="mg-chord" data-alt="dim">B</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="7">E</figure>
+				</td>
+				<td data-mg-rythm="2/2">
+					<figure class="mg-chord" data-alt="m">A</figure>
+					<figure class="mg-chord" data-alt="m/G">A</figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="Maj7">F</figure>
+				</td>
+
+				<td>
+					<figure class="mg-chord" data-alt="7">E</figure>
+				</td>
+				<td data-sign="coda">
+					<figure class="mg-repeat"></figure>
+				</td>
+				<td>
+					<figure class="mg-chord" data-alt="m">A</figure>
+				</td>
+				<td data-mg-rythm="2/2" data-sign="end">
+					<figure class="mg-chord" data-alt="dim">B</figure>
+					<figure class="mg-chord" data-alt="7">E</figure>
+				</td>
+				<th></th>
+			</tr>
+  			<tr>
+  				<th></th>
+  				<th colspan="4">
+  					CODA
+				</th>
+			</tr>
+			<tr>
+				<th></th>
+				<td data-mg-rythm="4">
+					<figure class="mg-chord">A</figure>
+				</td>
+				<td>
+					<figure class="mg-repeat"></figure>
+				</td>
+				<td data-mg-rythm="2/2">
+					<figure class="mg-chord" data-alt="m7">D</figure>
+					<figure class="mg-chord" data-alt="m7">E</figure>
+				</td>
+				<td data-mg-rythm="2/2">
+					<figure class="mg-chord" data-alt="m7">D</figure>
+					<figure class="mg-chord" data-alt="m7">E</figure>
+				</td>
+				<td data-mg-rythm="2/2">
+					<figure class="mg-chord" data-alt="m7">D</figure>
+					<figure class="mg-chord" data-alt="m7">E</figure>
+				</td>
+
+				<td>
+					<figure class="mg-chord" data-alt="69">A</figure>
+				</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+</body>
+</html>
