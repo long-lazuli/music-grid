@@ -1,4 +1,9 @@
-.mg-music-grid {
+.hide {
+	display: none;
+}
+
+.mg-music-grid,
+.mg-notechooser {
 
     font-family: sans-serif;
 
@@ -11,7 +16,7 @@
 
 	table-layout: fixed;
 	border-collapse: separate;
-	border-spacing: 0 .25em;
+	border-spacing: 0 0;
 
 	/*border-collapse: collapse;*/
 
@@ -20,9 +25,22 @@
 	}
 
 
+
+	&.toolbar {
+		position: fixed;
+		margin: 1em 4em auto;
+		top: 0;
+		font-size: 100%;
+		width: calc(100% - 8em);
+		&, tbody {
+			border: 0 none;
+		}
+	}
+
 	[contenteditable] {
 		border: 2px dashed grey;
 	}
+
 	caption {
 		text-align: center;
 		display: table-caption;
@@ -75,53 +93,57 @@
 			&[rowspan]:first-child {
 				padding-right: .5em;
 				text-align: left;
-				margin-top: calc(50% - 0.5em);	
+				 margin-top: calc(50% - 0.5em);	
 				margin-bottom: calc(50% - 0.5em);
 				width: 2.5em;
-				border: blue solid 1px;
-				font-size: 2em;
+//				border: blue solid 1px;
+				line-height: 2em;
 
-				background-image:	linear-gradient(to bottom left, white 40%, black 42.5%, black 57.5%, white 60%),
-									linear-gradient(white, white),
+				background-image:	linear-gradient(to left, rgba(255,255,255, 1) 0.15em, rgba(255,255,255,0) 0.25em, rgba(255,255,255,0) 1.45em , rgba(255,255,255,1) 1.55em ),
+									
+									linear-gradient(to bottom left, rgba(255,255,255,0.9) 43%, black 45%, black 55%, rgba(255,255,255,0.9) 57%),
+									linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 0.5em),
+									linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 0.5em),
 
-									linear-gradient(to top left, white 40%, black 42.5%, black 57.5%, white 60%),
-									linear-gradient(white, white),
+									linear-gradient(to top left, rgba(255,255,255,0.9) 43%, black 45%, black 55%, rgba(255,255,255,0.9) 57%),
+									linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 0.5em),
+									linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 0.5em),
 
-									linear-gradient(to right, white 0%, white 45%, rgba(255,255,255,0) 50% ),
-									linear-gradient(to left, white 0.25em, rgba(255,255,255,0) 0.25% ),
 																		
 									radial-gradient( closest-side circle, transparent 0%, transparent 87.5%, black 90%, black 99.5%, transparent 100%),
 									radial-gradient( closest-side circle, transparent 0%, transparent 87.5%, black 90%, black 99.5%, transparent 100%),
 									radial-gradient( closest-side circle, transparent 0%, transparent 87.5%, black 90%, black 99.5%, transparent 100%),
 									radial-gradient( closest-side circle, transparent 0%, transparent 87.5%, black 90%, black 99.5%, transparent 100%);
 				
-				background-size:  	0.25em calc(50% - 1.5em),
-									100% calc(50% - 1.5em),
+				background-size:  	100% 100%,
 
-									0.25em calc(50% - 1.5em),
-									100% calc(50% - 1.5em),
+									0.325em calc(50% - 1.5em),
+									100% calc(50% - 2em),
+									100% calc(50% - 2em),
 
-									100% 100%,
-									100% 100%,
+									0.325em calc(50% - 1.5em),
+									100% calc(50% - 2em),
+									100% calc(50% - 2em),
 
-									1.5em 1.5em,
-									1.5em 1.5em,
-									1.5em 1.5em,
-									1.5em 1.5em;
+									calc(100% - 0.75em) 1.5em,
+									calc(100% - 0.75em) 1.5em,
+									calc(100% - 0.75em) 1.5em,
+									calc(100% - 0.75em) 1.5em;
 				background-position:
-									calc(100% - 0.75em) 0.65em,
-									0% 0.65em,
-
-									calc(100% - 0.75em) calc(100% - 0.65em),
-									0% calc(100% - 0.65em),
-
-									0% 0%,
 									0% 0%,
 
-									150% calc(0% + 0.05em),
-									calc(100% - 0.725em) calc(50% - 0.725em),
-									calc(100% - 0.725em) calc(50% + 0.725em),
-									150% calc(100% - 0.05em);
+									calc(100% - 0.865em) 0.75em,
+									0% 0.75em,
+									0% 1.25em,
+
+									calc(100% - 0.865em) calc(100% - 0.75em),
+									0% calc(100% - 0.75em),
+									0% calc(100% - 1.25em),
+
+									150% 0%,
+									calc(100% - 0.75em) calc(50% - 0.75em),
+									calc(100% - 0.75em) calc(50% + 0.75em),
+									150% 100%;
 				background-repeat: no-repeat;
 
 /*				&:after {
@@ -148,6 +170,27 @@
 
 
 	tr {
+		&:first-child td {
+			border-width: 0.25em 0.25em 0.125em;
+			+ td {
+				border-left-width: 0;
+			}
+
+		}
+		& td {
+			border-width: 0.125em 0.25em 0.125em;
+			+ td {
+				border-left-width: 0;
+			}
+
+		}
+		&:last-child td {
+			border-width: 0.125em 0.25em 0.25em;
+			+ td {
+				border-left-width: 0;
+			}
+
+		}
 		td {
 			height: 6em;
 			width: 8em;
@@ -158,13 +201,6 @@
 			padding: 0;
 			vertical-align: top;
 			text-align: center;
-
-			border-width: 0.25em;
-
-			+ td {
-				border-left-width: 0;
-			}
-
 
 			&[data-mg-rythm="2/2"] {
 				background-image: linear-gradient( to right bottom, transparent 0%, transparent 48.5%, #000 49%, #000 51%, transparent 51.5%, transparent 100% );
@@ -253,7 +289,10 @@
 				font-size: 2em;
 				line-height: 3em;
 				letter-spacing: -0.1em;
-
+				
+				&.selected {
+					color: red;
+				}
 
 				&:nth-last-child(1),
 				&:nth-last-child(2),
@@ -479,12 +518,9 @@
 		/*	content: "𝄎";
 			font-size: 200%;
 		*/}
-		&.mg-rest:before {
+		&.mg-chord:only-child:before,
+		&.mg-chord:only-child[data-alt=''][data-note='']:before {
 			/*content: "𝄻𝄼𝄽";*/
-			font-size: 200%;
-		}
-
-		&.mg-rest:before {
 			content: "𝄻";
 		}
 
@@ -492,16 +528,24 @@
 
 
 	td {
-		&[data-mg-rythm="2/1/1"] figure.mg-rest:nth-child(1):before,
-		&[data-mg-rythm="1/1/2"] figure.mg-rest:nth-child(3):before,
-		&[data-mg-rythm="2/2"] figure.mg-rest:before {
+		&[data-mg-rythm="2/1/1"] figure.mg-chord:nth-child(1):before,
+		&[data-mg-rythm="2/1/1"] figure.mg-chord[data-alt=''][data-note='']:nth-child(1):before,
+		&[data-mg-rythm="1/1/2"] figure.mg-chord:nth-child(3):before,
+		&[data-mg-rythm="1/1/2"] figure.mg-chord[data-alt=''][data-note='']:nth-child(3):before,
+		&[data-mg-rythm="2/2"] figure.mg-chord:before,
+		&[data-mg-rythm="2/2"] figure.mg-chord[data-alt=''][data-note='']:before {
 			content: "𝄼";
 		}
-		&[data-mg-rythm="1/1/2"] figure.mg-rest:nth-child(1):before,
-		&[data-mg-rythm="1/1/2"] figure.mg-rest:nth-child(2):before,
-		&[data-mg-rythm="2/1/1"] figure.mg-rest:nth-child(2):before,
-		&[data-mg-rythm="2/1/1"] figure.mg-rest:nth-child(3):before,
-		&[data-mg-rythm="1/1/1/1"] figure.mg-rest:before {
+		&[data-mg-rythm="1/1/2"] figure.mg-chord:nth-child(1):before,
+		&[data-mg-rythm="1/1/2"] figure.mg-chord[data-alt=''][data-note='']:nth-child(1):before,
+		&[data-mg-rythm="1/1/2"] figure.mg-chord:nth-child(2):before,
+		&[data-mg-rythm="1/1/2"] figure.mg-chord[data-alt=''][data-note='']:nth-child(2):before,
+		&[data-mg-rythm="2/1/1"] figure.mg-chord:nth-child(2):before,
+		&[data-mg-rythm="2/1/1"] figure.mg-chord[data-alt=''][data-note='']:nth-child(2):before,
+		&[data-mg-rythm="2/1/1"] figure.mg-chord:nth-child(3):before,
+		&[data-mg-rythm="2/1/1"] figure.mg-chord[data-alt=''][data-note='']:nth-child(3):before,
+		&[data-mg-rythm="1/1/1/1"] figure.mg-chord:before,
+		&[data-mg-rythm="1/1/1/1"] figure.mg-chord[data-alt=''][data-note='']:before {
 			content: "𝄽";
 		}
 	}
@@ -513,190 +557,7 @@
 	}
 
 
-		/* Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅷ Ⅸ Ⅹ Ⅺ Ⅻ */
-/*
-			&[data-mg-key="i"] figure.mg-chord[data-note="1"]:before {	content: 'Ⅰ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="2"]:before {	content: 'Ⅱ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="3"]:before {	content: 'Ⅲ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="4"]:before {	content: 'Ⅳ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="5"]:before {	content: 'Ⅴ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="6"]:before {	content: 'Ⅵ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="7"]:before {	content: 'Ⅷ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="8"]:before {	content: 'Ⅸ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="9"]:before {	content: 'Ⅸ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="10"]:before {	content: 'Ⅹ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="11"]:before {	content: 'Ⅺ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="12"]:before {	content: 'Ⅻ';	}
 
-			&[data-mg-key="i"] figure.mg-chord[data-note="1"]:before {	content: 'Ⅵ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="2"]:before {	content: 'Ⅷ♭';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="3"]:before {	content: 'Ⅷ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="4"]:before {	content: 'Ⅰ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="5"]:before {	content: 'Ⅰ♯';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="6"]:before {	content: 'Ⅱ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="7"]:before {	content: 'Ⅲ♭';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="8"]:before {	content: 'Ⅲ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="9"]:before {	content: 'Ⅳ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="10"]:before {	content: 'Ⅳ♯';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="11"]:before {	content: 'Ⅴ';	}
-			&[data-mg-key="i"] figure.mg-chord[data-note="12"]:before {	content: 'Ⅴ♯';	}
-*/
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="1"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="12"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="11"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="10"]:before,
-			&[data-mg-key="5"] figure.mg-chord[data-note="9"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="8"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="7"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="6"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="5"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="4"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="3"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="2"]:before {	content: 'A';	}
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="2"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="1"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="12"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="11"]:before,
-			&[data-mg-key="5"] figure.mg-chord[data-note="10"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="9"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="8"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="7"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="6"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="5"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="4"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="3"]:before {	content: 'B♭';	}
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="3"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="2"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="1"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="12"]:before,
-			&[data-mg-key="5"] figure.mg-chord[data-note="11"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="10"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="9"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="8"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="7"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="6"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="5"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="4"]:before {	content: 'B';	}
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="4"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="3"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="2"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="1"]:before ,
-			&[data-mg-key="5"] figure.mg-chord[data-note="12"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="11"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="10"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="9"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="8"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="7"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="6"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="5"]:before {	content: 'C';	}
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="5"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="4"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="3"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="2"]:before,
-			&[data-mg-key="5"] figure.mg-chord[data-note="1"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="12"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="11"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="10"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="9"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="8"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="7"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="6"]:before {	content: 'C♯';	}
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="6"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="5"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="4"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="3"]:before,
-			&[data-mg-key="5"] figure.mg-chord[data-note="2"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="1"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="12"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="11"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="10"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="9"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="8"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="7"]:before {	content: 'D';	}
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="7"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="6"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="5"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="4"]:before,
-			&[data-mg-key="5"] figure.mg-chord[data-note="3"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="2"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="1"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="12"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="11"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="10"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="9"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="8"]:before {	content: 'E♭';	}
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="8"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="7"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="6"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="5"]:before,
-			&[data-mg-key="5"] figure.mg-chord[data-note="4"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="3"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="2"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="1"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="12"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="11"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="10"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="9"]:before {	content: 'E';	}
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="9"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="8"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="7"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="6"]:before,
-			&[data-mg-key="5"] figure.mg-chord[data-note="5"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="4"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="3"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="2"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="1"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="12"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="11"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="10"]:before {	content: 'F';	}
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="10"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="9"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="8"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="7"]:before,
-			&[data-mg-key="5"] figure.mg-chord[data-note="6"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="5"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="4"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="3"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="2"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="1"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="12"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="11"]:before {	content: 'F♯';	}
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="11"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="10"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="9"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="8"]:before,
-			&[data-mg-key="5"] figure.mg-chord[data-note="7"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="6"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="5"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="4"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="3"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="2"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="1"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="12"]:before {	content: 'G';	}
-
-			&[data-mg-key="1"] figure.mg-chord[data-note="12"]:before,
-			&[data-mg-key="2"] figure.mg-chord[data-note="11"]:before,
-			&[data-mg-key="3"] figure.mg-chord[data-note="10"]:before,
-			&[data-mg-key="4"] figure.mg-chord[data-note="9"]:before,
-			&[data-mg-key="5"] figure.mg-chord[data-note="8"]:before,
-			&[data-mg-key="6"] figure.mg-chord[data-note="7"]:before,
-			&[data-mg-key="7"] figure.mg-chord[data-note="6"]:before,
-			&[data-mg-key="8"] figure.mg-chord[data-note="5"]:before,
-			&[data-mg-key="9"] figure.mg-chord[data-note="4"]:before,
-			&[data-mg-key="10"] figure.mg-chord[data-note="3"]:before,
-			&[data-mg-key="11"] figure.mg-chord[data-note="2"]:before,
-			&[data-mg-key="12"] figure.mg-chord[data-note="1"]:before {	content: 'G♯';	}		
 
 	figure {
 
@@ -763,10 +624,28 @@
 			background-image: linear-gradient(to left, transparent 0%, transparent 0.075em, black 0.075em, black 0.125em, transparent 0.125em);
 		}
 	}
-	[data-repeat-stop] {
+	[data-repeat-stop] {	
 		&:after {
-			content: attr('data-repeat-stop');
+			float: right;
+			font-style: italic;
+			margin-right: calc( -100% - 0.5em);
+			height: 0;
+			font-size: 1.5em;
+			display: block;
+			width: 100%;
+			text-align: left;
+			line-height: 1em;
 		}
+		&[data-repeat-number="3"]:after { content: "x3"; }
+		&[data-repeat-number="4"]:after { content: "x4"; }
+		&[data-repeat-number="5"]:after { content: "x5"; }
+		&[data-repeat-number="6"]:after { content: "x6"; }
+		&[data-repeat-number="7"]:after { content: "x7"; }
+		&[data-repeat-number="8"]:after { content: "x8"; }
+		&[data-repeat-number="9"]:after { content: "x9"; }
+		&[data-repeat-number="10"]:after { content: "x10"; }
+		&[data-repeat-number="11"]:after { content: "x11"; }
+		&[data-repeat-number="12"]:after { content: "x12"; }
 	}
 
 	.alignLeft {
@@ -814,4 +693,366 @@
 		border-bottom-width: inherit;
 	}
 
+
+
+}
+
+.mg-music-grid {
+	figure {
+		&.mg-chord:only-child:before,
+		&.mg-chord:only-child[data-alt=''][data-note='']:before {
+			font-size: 200%;
+		}
+	}
+
+}
+
+
+
+body {
+			/* Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅷ Ⅸ Ⅹ Ⅺ Ⅻ */
+/*	
+			&[data-mg-key="i"] figure.mg-chord[data-note="1"]:before {	content: 'Ⅰ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="2"]:before {	content: 'Ⅱ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="3"]:before {	content: 'Ⅲ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="4"]:before {	content: 'Ⅳ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="5"]:before {	content: 'Ⅴ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="6"]:before {	content: 'Ⅵ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="7"]:before {	content: 'Ⅷ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="8"]:before {	content: 'Ⅸ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="9"]:before {	content: 'Ⅸ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="10"]:before {	content: 'Ⅹ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="11"]:before {	content: 'Ⅺ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="12"]:before {	content: 'Ⅻ';	}
+
+			&[data-mg-key="i"] figure.mg-chord[data-note="1"]:before {	content: 'Ⅵ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="2"]:before {	content: 'Ⅷ♭';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="3"]:before {	content: 'Ⅷ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="4"]:before {	content: 'Ⅰ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="5"]:before {	content: 'Ⅰ♯';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="6"]:before {	content: 'Ⅱ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="7"]:before {	content: 'Ⅲ♭';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="8"]:before {	content: 'Ⅲ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="9"]:before {	content: 'Ⅳ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="10"]:before {	content: 'Ⅳ♯';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="11"]:before {	content: 'Ⅴ';	}
+			&[data-mg-key="i"] figure.mg-chord[data-note="12"]:before {	content: 'Ⅴ♯';	}
+*/
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="2"]:before {	font-size: 100%; content: 'A';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="3"]:before {	font-size: 100%; content: 'B♭';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="4"]:before {	font-size: 100%; content: 'B';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="1"]:before ,
+			&[data-mg-key="5"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="5"]:before {	font-size: 100%; content: 'C';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="6"]:before {	font-size: 100%; content: 'C♯';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="7"]:before {	font-size: 100%; content: 'D';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="8"]:before {	font-size: 100%; content: 'E♭';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="9"]:before {	font-size: 100%; content: 'E';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="10"]:before { font-size: 100%; content: 'F';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="11"]:before { font-size: 100%; content: 'F♯';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="12"]:before { font-size: 100%; content: 'G';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="1"]:before {	font-size: 100%; content: 'G♯';	}		
+
+
+	&[data-notation="EU"] {
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="2"]:before {	content: 'La';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="3"]:before {	content: 'Si♭';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="4"]:before {	content: 'Si';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="1"]:before ,
+			&[data-mg-key="5"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="5"]:before {	content: 'Do';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="6"]:before {	content: 'Do♯';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="7"]:before {	content: 'Ré';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="8"]:before {	content: 'Mi♭';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="9"]:before {	content: 'Mi';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="10"]:before {	content: 'Fa';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="11"]:before {	content: 'Fa♯';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="1"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="12"]:before {	content: 'Sol';	}
+
+			&[data-mg-key="1"] figure.mg-chord[data-note="12"]:before,
+			&[data-mg-key="2"] figure.mg-chord[data-note="11"]:before,
+			&[data-mg-key="3"] figure.mg-chord[data-note="10"]:before,
+			&[data-mg-key="4"] figure.mg-chord[data-note="9"]:before,
+			&[data-mg-key="5"] figure.mg-chord[data-note="8"]:before,
+			&[data-mg-key="6"] figure.mg-chord[data-note="7"]:before,
+			&[data-mg-key="7"] figure.mg-chord[data-note="6"]:before,
+			&[data-mg-key="8"] figure.mg-chord[data-note="5"]:before,
+			&[data-mg-key="9"] figure.mg-chord[data-note="4"]:before,
+			&[data-mg-key="10"] figure.mg-chord[data-note="3"]:before,
+			&[data-mg-key="11"] figure.mg-chord[data-note="2"]:before,
+			&[data-mg-key="12"] figure.mg-chord[data-note="1"]:before {	content: 'Sol♯';	}		
+
+	}
 }
