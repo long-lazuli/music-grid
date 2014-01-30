@@ -3,7 +3,7 @@
 	  		<tr>
 	  			<th colspan="100%" class="alignRight">
 	  				<label>Tonalité : </label>
-					<select class="mg-keys" onchange="mg.toneChange(this)">
+					<select class="mg-keys" onchange="mg.toneChange(this)" onkeyup="mg.toneChange(this)">
 						<option disabled value="i">Roman</option>
 						<optgroup label="Keys :">
 							<option value="1">A</option>

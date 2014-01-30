@@ -22,7 +22,7 @@
 
   		<tbody>
 			<tr>
-				<th rowspan="2">A</th>
+				<th rowspan="100%">A</th>
 				<td data-repeat-start>
 					<figure class="mg-chord" data-note="10" data-alt="m"></figure>
 				</td>
@@ -52,7 +52,7 @@
 					<figure class="mg-chord" data-note="5" data-alt="dim"></figure>
 					<figure class="mg-chord" data-note="10" data-alt="7"></figure>
 				</td>
-				<th rowspan="2"></th>
+				<th rowspan="100%"></th>
 			</tr>
 			<tr>
 				<td>
@@ -85,7 +85,7 @@
 
 		<tbody>
 			<tr>
-				<th rowspan="2">B</th>
+				<th rowspan="100%">B</th>
 				<td>
 					<figure class="mg-chord" data-note="10" data-alt="m"></figure>
 				</td>
@@ -113,7 +113,7 @@
 				<td>
 					<figure class="mg-chord" data-note="3" data-alt="m7"></figure>
 				</td>
-				<th></th>
+				<th rowspan="100%"></th>
 			</tr>
 			<tr>
 				<td>
@@ -143,16 +143,12 @@
 					<figure class="mg-chord" data-note="12" data-alt="dim"></figure>
 					<figure class="mg-chord" data-note="5" data-alt="7"></figure>
 				</td>
-				<th></th>
 			</tr>
-  			<tr>
-  				<th></th>
-  				<th colspan="4">
-  					CODA
-				</th>
-			</tr>
+		</tbody>
+
+		<tbody>
 			<tr>
-				<th></th>
+				<th rowspan="100%" colspan="3">CODA</th>
 				<td data-mg-rythm="4">
 					<figure class="mg-chord" data-note="10" ></figure>
 				</td>
@@ -175,6 +171,7 @@
 				<td>
 					<figure class="mg-chord" data-note="10" data-alt="69"></figure>
 				</td>
+				<th rowspan="100%"></th>
 			</tr>
 		</tbody>
 

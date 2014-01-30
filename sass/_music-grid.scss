@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Margarine);
+
+
 .hide {
 	display: none;
 }
@@ -5,8 +8,8 @@
 .mg-music-grid,
 .mg-notechooser {
 
-    font-family: sans-serif;
-
+ 	font-family: "Margarine", sans-serif;
+ 
 	margin: auto;
 
 	padding: 0;
@@ -92,7 +95,11 @@
 
 			&[rowspan]:first-child {
 				padding-right: .5em;
+				overflow: hidden;
 				text-align: left;
+				&[colspan] {
+					text-align: right;
+				}
 				 margin-top: calc(50% - 0.5em);	
 				margin-bottom: calc(50% - 0.5em);
 				width: 2.5em;
@@ -166,6 +173,10 @@
 */			}
 
 		}
+
+		tr:only-child th[rowspan]:first-child {
+			background-image: none;
+		}
 	}
 
 
@@ -197,7 +208,7 @@
 			border-color: #000;
 			border-style: solid;
 			background-repeat: no-repeat;
-			font-weight: bold;
+			//font-weight: bold;
 			padding: 0;
 			vertical-align: top;
 			text-align: center;
